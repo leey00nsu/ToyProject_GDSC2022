@@ -3,6 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,django
 ### 가상환경 ###
 myvenv/
+.DS_Store
 ### Django ###
 *.log
 *.pot

@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.intro-items {
+  padding-top: 10%;
+}
+.intro-main-text {
+  font-family: "yg-jalnan";
+  font-size: 50px;
+}
+
+.intro-sub-text {
+  font-family: "Noto Sans KR";
+  font-size: 20px;
+}
+
+.intro-button {
+  font-family: "Noto Sans KR";
+  font-size: 20px;
+}

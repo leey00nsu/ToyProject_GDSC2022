@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="kr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+    <title>Toy-Project2</title>
+  </head>
+
+  <body>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              src="{%static 'images/google-icon.svg' %}"
+              alt=""
+              width="30"
+              height="24"
+              class="d-inline-block align-text-top"
+            />
+            Toy-Project2
+          </a>
+
+          <form class="d-flex">
+            <button class="btn btn-sm btn-outline-secondary" type="submit">
+              로그인
+            </button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="card border-0 h-100">
+        <img
+          src="{%static 'images/main-background3.png' %}"
+          class="card-img"
+          alt="..."
+        />
+        <div
+          class="intro-items d-flex flex-column card-img-overlay align-items-center text-black"
+        >
+          <h5 class="intro-main-text">소소한 나의 하루 기록</h5>
+          <p class="intro-sub-text">소소하지만 소중한 하루를 기록해보세요</p>
+          <button type="button" class="intro-button btn btn-primary btn-lg">
+            시작하기
+          </button>
+        </div>
+      </div>
+
+      <h1>Main</h1>
+      <span>main</span>
+    </main>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

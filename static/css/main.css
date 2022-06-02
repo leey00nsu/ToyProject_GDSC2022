@@ -7,24 +7,36 @@
 }
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.notosanskr * {
+.notosanskr {
   font-family: "Noto Sans KR", sans-serif;
 }
 
-.intro-items {
-  padding-top: 10%;
-}
-.intro-main-text {
+.jalnan {
   font-family: "yg-jalnan";
+}
+
+.intro-items {
+  padding-top: 10rem;
+}
+
+.main-text {
   font-size: 50px;
 }
 
-.intro-sub-text {
-  font-family: "Noto Sans KR";
+.sub-text {
   font-size: 20px;
 }
 
-.intro-button {
-  font-family: "Noto Sans KR";
-  font-size: 20px;
+.small-text {
+  font-size: 16px;
+}
+
+.card-img-top {
+  width: auto;
+  height: 100vh;
+  object-fit: cover;
+}
+
+footer {
+  border-top: 1px solid #e0e0e0;
 }

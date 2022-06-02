@@ -20,7 +20,7 @@
 
   <body>
     <header class="sticky-top">
-      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <nav class="navbar navbar-light bg-white">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img
@@ -30,11 +30,14 @@
               height="24"
               class="d-inline-block align-text-top"
             />
-            Toy-Project2
+            <span class="sub-text notosanskr">Toy-Project2</span>
           </a>
 
           <form class="d-flex">
-            <button class="btn btn-sm btn-outline-secondary" type="submit">
+            <button
+              class="small-text btn btn-sm btn-outline-secondary notosanskr"
+              type="submit"
+            >
               로그인
             </button>
           </form>
@@ -42,28 +45,56 @@
       </nav>
     </header>
 
-    <main>
-      <div class="card border-0 h-100">
+    <main class="pb-5">
+      <div class="card border-0">
         <img
-          src="{%static 'images/main-background3.png' %}"
-          class="card-img"
+          src="{%static 'images/main-background.png' %}"
+          class="card-img-top img-fluid"
           alt="..."
         />
         <div
           class="intro-items d-flex flex-column card-img-overlay align-items-center text-black"
         >
-          <h5 class="intro-main-text">소소한 나의 하루 기록</h5>
-          <p class="intro-sub-text">소소하지만 소중한 하루를 기록해보세요</p>
-          <button type="button" class="intro-button btn btn-primary btn-lg">
+          <h5 class="main-text jalnan">소소한 나의 하루 기록</h5>
+          <p class="sub-text notosanskr">
+            소소하지만 소중한 하루를 기록해보세요
+          </p>
+          <button
+            type="button"
+            class="small-text intro-button btn btn-primary btn-lg notosanskr"
+          >
             시작하기
           </button>
         </div>
       </div>
-
-      <h1>Main</h1>
-      <span>main</span>
+      <div></div>
     </main>
-
+    <footer class="pt-5 pb-3 container-fluid">
+      <div
+        class="d-flex flex-row justify-content-evenly pb-5 small-text notosanskr"
+      >
+        <div class="d-flex flex-column">
+          <div class="fw-bold pb-2 fs-6">프로젝트</div>
+          <div class="text-muted pb-1">공지사항</div>
+          <div class="text-muted pb-1">자주 묻는 질문</div>
+        </div>
+        <div class="d-flex flex-column">
+          <div class="fw-bold pb-2">서비스</div>
+          <div class="text-muted pb-1">이용약관</div>
+          <div class="text-muted pb-1">개인정보처리방침</div>
+        </div>
+        <div class="d-flex flex-column">
+          <div class="fw-bold pb-2">문의</div>
+          <div class="text-muted pb-1">이메일: support@gmail.com</div>
+          <div class="text-muted pb-1">카카오톡: support</div>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-center notosanskr">
+        <div class="d-flex flex-column align-items-center">
+          <div class="text-muted small-text">All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

@@ -16,15 +16,20 @@
 }
 
 .intro-items {
-  padding-top: 10rem;
+  padding-top: 8rem;
 }
 
 .main-text {
-  font-size: 50px;
+  font-size: 70px;
 }
 
 .sub-text {
-  font-size: 20px;
+  font-size: 35px;
+}
+
+.logo-text {
+  font-size: 30px;
+  color: #2980b9;
 }
 
 .small-text {

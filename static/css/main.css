@@ -45,3 +45,8 @@
 footer {
   border-top: 1px solid #e0e0e0;
 }
+
+/* 링크 밑줄 제거 */
+a { 
+  text-decoration-line: none; 
+}

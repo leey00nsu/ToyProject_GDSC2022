@@ -4,4 +4,4 @@ from rest_framework.views import APIView
 
 class Main(APIView):
     def get(self, request):
-        return render(request, 'main_view/main.html')
+        return render(request, 'main_view/intro.html')

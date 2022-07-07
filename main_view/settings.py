@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'main_view',
     'accounts',
+    'contents',
 
 ]
 
@@ -144,6 +145,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+LOGIN_REDIRECT_URL = '/'
 
 
 # Default primary key field type

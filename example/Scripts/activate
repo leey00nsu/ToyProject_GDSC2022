@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\project\example"
+VIRTUAL_ENV="E:\visual_studio\ToyProject_GDSC2022\example"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

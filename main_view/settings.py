@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'bootstrap5',
 
 	  'corsheaders',
     'rest_framework',
@@ -147,6 +148,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 LOGIN_REDIRECT_URL = '/'
+
+SITE_ID = 1
 
 
 # Default primary key field type

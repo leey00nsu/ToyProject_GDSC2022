@@ -9,7 +9,7 @@ class LoginForm(forms.ModelForm):
     model = User
     fields = ["username","password"]
 class SignupForm(UserCreationForm):
-  username = forms.CharField(label='사용자명',widget=forms.TextInput(attrs={
+  username = forms.CharField(label='아이디',widget=forms.TextInput(attrs={
     'pattern':'[a-zA-Z0-9]+',
     'title': '특수문자,공백 입력불가',
   }))
@@ -18,7 +18,8 @@ class SignupForm(UserCreationForm):
   picture = forms.ImageField(label='프로필 사진',required=False)
 
   class Meta(UserCreationForm.Meta):
-    fields = UserCreationForm.Meta.fields + ('email',)
+    fields = UserCreationForm.Meta.fields
+    help_texts = { 'username': None, 'password': None, }
   
   def clean_nickname(self):
     nickname = self.cleaned_data.get('nickname')

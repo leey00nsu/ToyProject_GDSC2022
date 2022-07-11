@@ -26,16 +26,41 @@
             <span class="logo-text jalnan">일상:한컷</span>
           </a>
 
+          {{ user.username }} {% if user.is_authenticated %}
           <form class="d-flex">
             <button
-              class="small-text btn btn-sm btn-outline-secondary notosanskr"
+              class="small-text btn btn-sm btn-outline-secondary notosanskr mx-2"
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#loginModal"
             >
-              로그인
+              내 기록
             </button>
+            <a href="/accounts/logout">
+              <button
+                class="small-text btn btn-sm btn-outline-secondary notosanskr mx-2"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                로그아웃
+              </button>
+            </a>
           </form>
+          {% else %}
+          <form class="d-flex">
+            <a href="/accounts/login">
+              <button
+                class="small-text btn btn-sm btn-outline-secondary notosanskr"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                로그인
+              </button>
+            </a>
+          </form>
+          {% endif %}
         </div>
       </nav>
     </header>

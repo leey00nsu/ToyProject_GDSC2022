@@ -1,0 +1,23 @@
+{% extends "main_view/main.html" %}
+<!--  -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+<!--  -->
+{% block head %}
+<!--  -->
+{% endblock%}
+<!--  -->
+{% block content %}
+<div class="pt-5 pb-5">
+  <div class="d-flex justify-content-center">
+    <div>
+      <img
+        style="width: 150px; height: 150px"
+        src="{%static 'images/profile.png' %}"
+        class="border border-1 rounded-circle"
+        alt="..."
+      />
+    </div>
+  </div>
+</div>
+{% endblock %}

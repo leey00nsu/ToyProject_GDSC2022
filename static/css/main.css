@@ -15,16 +15,20 @@
   font-family: "yg-jalnan";
 }
 
-.intro-items {
-  padding-top: 8rem;
-}
-
 .main-text {
   font-size: 70px;
 }
 
 .sub-text {
-  font-size: 35px;
+  font-size: 30px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-regular {
+  font-weight: normal;
 }
 
 .logo-text {
@@ -36,12 +40,55 @@
   font-size: 16px;
 }
 
+/* 메인화면 배경 */
 .card-img-top {
   width: auto;
   height: 100vh;
   object-fit: cover;
 }
 
+/* 콘텐츠 화면 메모 태그 버튼 */
+.btn-tag {
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #e3f2fd;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* POST 추가 버튼 */
+.btn-add {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* 메모 박스 */
+.content-box {
+  border: none;
+  width: 216px;
+  height: 312px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* 박스 그림자 */
+.drop-shadow {
+  box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
 footer {
   border-top: 1px solid #e0e0e0;
+}
+
+/* 링크 밑줄 제거 */
+a {
+  text-decoration-line: none;
 }

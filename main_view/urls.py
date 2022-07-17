@@ -27,6 +27,7 @@ urlpatterns = [
     path('',Main.as_view()),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('allauth.urls')),
+    path('post_new/', include('contents.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

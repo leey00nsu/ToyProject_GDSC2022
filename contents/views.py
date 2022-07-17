@@ -15,9 +15,7 @@ def post_new(request):
         post.content = request.POST['body']
         
         post.save()
-    elif request.method == 'GET':
-        return render(request, 'contents/content.html')
-    
+       
         
     return render(request, 'contents/content.html')
     

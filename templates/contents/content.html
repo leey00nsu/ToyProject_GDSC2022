@@ -63,7 +63,7 @@
           </div>
 
           <!-- 태그,시간 -->
-          <form action="post_new/"method="POST" enctype="multipart/form-data">
+          <form action="{% url 'contents:post_new' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
               <div>
                 <span class="fs-5">태그 :</span>

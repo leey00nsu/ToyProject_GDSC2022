@@ -55,15 +55,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <form action="{% url 'contents:post_new' %}" method="POST" enctype="multipart/form-data">
         <div class="d-flex flex-column">
           <!-- 사진 업로드 -->
           <div type="button" class="d-flex flex-column justify-content-center align-items-center">
               <img src="{%static 'images/upload.png' %}">
               <div class="fs-5 text-primary">여기를 눌러 업로드</div>
+              <input type='file' name='imgfile'>
           </div>
 
           <!-- 태그,시간 -->
-          <form action="{% url 'contents:post_new' %}" method="POST" enctype="multipart/form-data">
+          
             {% csrf_token %}
               <div>
                 <span class="fs-5">태그 :</span>

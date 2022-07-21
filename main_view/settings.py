@@ -181,3 +181,7 @@ CORS_ALLOW_HEADERS = (
   'x-csrftoken',
   'x-requested-with',
 )
+
+# 로그인 상태 유지 20분
+SESSION_COOKIE_AGE = 1200
+SESSION_SAVE_EVERY_REQUEST = True

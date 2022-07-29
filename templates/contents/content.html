@@ -1,6 +1,6 @@
 {% extends "main_view/main.html" %}
 <!--  -->
-{% load static %} 
+{% load static %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 <!--  -->
 {% block head %}
@@ -8,102 +8,134 @@
 {% endblock%}
 <!--  -->
 {% block content %}
-<div class="pt-5 pb-5">
+<div class="pt-5 pb-5 notosanskr">
   <div class="d-flex justify-content-start ms-5">
     <div class="d-flex flex-column ms-5">
-      <div class="sub-text notosanskr text-bold">📝 내 기록</div>
-      <div class="sub-text notosanskr text-regular"
-        >오늘 하루를 기록해보세요</div>
+      <div class="sub-text text-bold">📝 내 기록</div>
+      <div class="sub-text text-regular">오늘 하루를 기록해보세요</div>
       <div class="pt-3">
-        <button class="btn-tag fs-5 notosanskr me-4">전체</button>
-        <button class="btn-tag fs-5 notosanskr me-4">일기</button>
-        <button class="btn-tag fs-5 notosanskr me-4">메모</button>
+        <button class="btn-tag fs-5 me-4">전체</button>
+        <button class="btn-tag fs-5 me-4">일기</button>
+        <button class="btn-tag fs-5 me-4">메모</button>
       </div>
       <div class="pt-5 ms-5 d-flex">
-          <div class="content-box drop-shadow me-4 d-flex justify-content-center align-items-center">
-            <button class="btn-add drop-shadow d-flex flex-column justify-content-center align-items-center main-text text-secondary"
+        <div
+          class="content-box drop-shadow me-4 d-flex justify-content-center align-items-center"
+        >
+          <button
+            class="btn-add drop-shadow d-flex flex-column justify-content-center align-items-center main-text text-secondary fs-3"
             data-bs-toggle="modal"
-            data-bs-target="#PostModal">
+            data-bs-target="#PostModal"
+          >
             ＋
-            </button>
-          </div>
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
+          </button>
         </div>
-        <div class="pt-5 ms-5 d-flex">
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
-          <div class="content-box drop-shadow me-4"></div>
-        </div>
+
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
+      </div>
+      <div class="pt-5 ms-5 d-flex">
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
+        <div class="content-box drop-shadow me-4"></div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- 모달 화면 -->
-<div class="modal fade" id="PostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="PostModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <div type="button" class="modal-title fs-5 text-primary" id="PostModalLabel">업로드</div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="{% url 'contents:post_new' %}" method="POST" enctype="multipart/form-data">
-        <div class="d-flex flex-column">
-          <!-- 사진 업로드 -->
-          <div type="button" class="d-flex flex-column justify-content-center align-items-center">
-              <img src="{%static 'images/upload.png' %}">
-              <div class="fs-5 text-primary">여기를 눌러 업로드</div>
-              <input type='file' name='imgfile'>
-          </div>
-
-          <!-- 태그,시간 -->
-          
-            {% csrf_token %}
-              <div>
-                <span class="fs-5">태그 :</span>
-                <span class="fs-5">내용입니다</span>
-              </div>
-              <div>
-                <span class="fs-5">작성일 :</span>
-                <span class="fs-5">내용입니다</span>
-              </div>
-              <div>
-                <span class="fs-5">수정일 :</span>
-                <span class="fs-5">내용입니다</span>
-              </div>
-
-              <!-- 수평가로선 -->
-              <hr class="mt-5 mb-5"/>
-
-              <!-- 내용 -->
-              <div>
-                <span>
-                  <input class="fs-4 text-bold" name="title" placeholder="제목">
-                </span>
-              </div>
-              <div class="mt-3">
-                <span>
-                  <textarea name="body" placeholder="내용"></textarea>
-                </span>
-              </div>
-              <button
-                value="upload"
-                type="submit"
-                class="btn btn-primary w-100 mb-3"
-              >
-                업로드
-              </button>
-          </form>
+      <form
+        action="{% url 'contents:post_new' %}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <div class="modal-header">
+          <button
+            value="upload"
+            type="submit"
+            class="modal-title fs-5 border-0 bg-white text-primary"
+            id="PostModalLabel"
+          >
+            업로드
+          </button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
-      </div>
+        <div class="modal-body">
+          <div class="d-flex flex-column">
+            <!-- 사진 업로드 -->
+            <label for="imgfile">
+              <div
+                class="d-flex flex-column justify-content-center align-items-center hover-dark"
+              >
+                <img src="{%static 'images/upload.png' %}" />
+                <div class="fs-5 text-primary">여기를 눌러 업로드</div>
+              </div>
+            </label>
+            <input class="invisible" type="file" id="imgfile" name="imgfile" />
+
+            <!-- 태그,시간 -->
+
+            <div>
+              <span class="fs-5">태그 :</span>
+              <span class="fs-5">내용입니다</span>
+            </div>
+            <div>
+              <span class="fs-5">작성일 :</span>
+              <span class="fs-5">내용입니다</span>
+            </div>
+            <div>
+              <span class="fs-5">수정일 :</span>
+              <span class="fs-5">내용입니다</span>
+            </div>
+
+            <!-- 수평가로선 -->
+            <hr class="mt-5 mb-5" />
+
+            <!-- 내용 -->
+            <div>
+              <span>
+                <input
+                  class="fs-4 text-bold w-100"
+                  name="title"
+                  placeholder="제목"
+                />
+              </span>
+            </div>
+            <div class="mt-3">
+              <span>
+                <textarea
+                  rows="10"
+                  style="resize: none"
+                  class="w-100"
+                  name="body"
+                  placeholder="내용"
+                ></textarea>
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

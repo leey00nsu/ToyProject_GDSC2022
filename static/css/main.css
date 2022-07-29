@@ -92,3 +92,9 @@ footer {
 a {
   text-decoration-line: none;
 }
+
+.hover-dark:hover {
+  background-color: darkgray;
+  opacity: 0.9;
+  cursor: pointer;
+}

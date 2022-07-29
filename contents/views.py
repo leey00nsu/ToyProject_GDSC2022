@@ -8,6 +8,7 @@ def post_new(request):
     
     if request.method == 'POST':
         
+        
         post = NewPost()
         post.user = request.user.username
         post.date = datetime.datetime.now()

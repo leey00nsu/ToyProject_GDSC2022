@@ -1,0 +1,47 @@
+{% extends "main_view/main.html" %}
+<!--  -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+<!--  -->
+{% block head %}
+<!--  -->
+{% endblock%}
+<!--  -->
+{% block content %}
+<div class="modal-dialog modal-lg">
+    <div class="modal-body">
+      <div class="d-flex flex-column">
+        <!-- 사진 업로드 -->
+        <div type="button" class="d-flex flex-column justify-content-center align-items-center">
+            <img src="{%static 'images/ex-con.png'%}">
+        </div>
+  
+            <!-- 태그,시간 -->
+        <div>
+          <span class="fs-5">태그 :</span>
+          <span class="fs-5"> <button class="btn-tag fs-5 notosanskr me-4">일기</button></span>
+        </div>
+        <div>
+          <span class="fs-5">작성일 :</span>
+          <span class="fs-5">2022년 7월 21일</span>
+        </div>
+        <div>
+          <span class="fs-5">수정일 :</span>
+          <span class="fs-5">2022년 7월 21일</span>
+        </div>
+  
+            <!-- 수평가로선 -->
+        <hr class="mt-5 mb-5"/>
+  
+            <!-- 내용 -->
+        <div>
+          <span class="fs-4 text-bold">오늘은 제육볶음을 먹었다</span>
+        </div>
+        <div class="mt-3">
+          <span class="fs-5">맛있었다 내일은 어떤 음식을 먹을까</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -4,6 +4,7 @@
 ### 가상환경 ###
 myvenv/
 .DS_Store
+example/
 ### Django ###
 *.log
 *.pot

@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'main_view',
     'accounts',
     'contents',
+    'post_detail',
 
 ]
 

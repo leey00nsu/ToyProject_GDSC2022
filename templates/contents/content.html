@@ -12,7 +12,9 @@
   <div class="d-flex justify-content-start ms-5">
     <div class="d-flex flex-column ms-5">
       <div class="sub-text text-bold">📝 내 기록</div>
-      <div class="sub-text text-regular">오늘 하루를 기록해보세요</div>
+      <div class="sub-text text-regular">
+        {{ user.username }}님 오늘 하루를 기록해보세요.
+      </div>
       <div class="pt-3">
         <button class="btn-tag fs-5 me-4">전체</button>
         <button class="btn-tag fs-5 me-4">일기</button>
@@ -22,13 +24,14 @@
         <div
           class="content-box drop-shadow me-4 d-flex justify-content-center align-items-center"
         >
-          <button
-            class="btn-add drop-shadow d-flex flex-column justify-content-center align-items-center main-text text-secondary fs-3"
-            data-bs-toggle="modal"
-            data-bs-target="#PostModal"
-          >
-            ＋
-          </button>
+            <button
+              class="btn-add drop-shadow d-flex flex-column justify-content-center align-items-center main-text text-secondary fs-3"
+              data-bs-toggle="modal"
+              data-bs-target="#PostModal"
+            >
+              ＋
+            </button>
+          </form>
         </div>
 
         <div class="content-box drop-shadow me-4"></div>
@@ -49,12 +52,12 @@
   </div>
 </div>
 
-<!-- 모달 화면 -->
+<!-- 업로드 모달 화면 -->
 <div
   class="modal fade"
   id="PostModal"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="PostModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog modal-lg">
@@ -97,16 +100,22 @@
             <!-- 태그,시간 -->
 
             <div>
-              <span class="fs-5">태그 :</span>
-              <span class="fs-5">내용입니다</span>
+              <div class="row justify-content-start align-items-center">
+                <div class="fs-5 col-auto">태그 :</div>
+                <div class="fs-5 col-auto">
+                  <select class="form-select" aria-label="Tag-Select">
+                    <option selected>태그를 선택해주세요</option>
+                    <option value="1">일기</option>
+                    <option value="2">메모</option>
+                  </select>
+                </div>
+              </div>
             </div>
             <div>
-              <span class="fs-5">작성일 :</span>
-              <span class="fs-5">내용입니다</span>
-            </div>
-            <div>
-              <span class="fs-5">수정일 :</span>
-              <span class="fs-5">내용입니다</span>
+              <div class="row justify-content-start align-items-center">
+                <div class="fs-5 col-auto">작성일 :</div>
+                <div class="fs-5 col-auto">{{now}}</div>
+              </div>
             </div>
 
             <!-- 수평가로선 -->

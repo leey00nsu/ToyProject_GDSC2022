@@ -8,6 +8,7 @@ class LoginForm(forms.ModelForm):
   class Meta:
     model = User
     fields = ["username","password"]
+    
 class SignupForm(UserCreationForm):
   username = forms.CharField(label='아이디',widget=forms.TextInput(attrs={
     'pattern':'[a-zA-Z0-9]+',

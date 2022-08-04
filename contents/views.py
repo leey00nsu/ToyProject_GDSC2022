@@ -14,7 +14,10 @@ def post_new(request):
         post.date = datetime.datetime.now()
         post.title = request.POST['title']
         post.content = request.POST['body']
-        post.imgfile = request.FILES['imgfile']
+        try:
+          post.image = request.FILES['imgfile']
+        except:
+          post.image = None
         
         post.save()
        

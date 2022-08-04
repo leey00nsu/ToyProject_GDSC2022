@@ -12,6 +12,7 @@ def post_new(request):
         post = NewPost()
         post.user = request.user.username
         post.date = datetime.datetime.now()
+        post.last_modified = post.date
         post.title = request.POST['title']
         post.content = request.POST['body']
         post.imgfile = request.FILES['imgfile']
@@ -19,6 +20,6 @@ def post_new(request):
         post.save()
        
         
-    return render(request, 'contents/content.html')
+    return render(request, 'contents/content.html', {'OpenPost' : post})
     
         

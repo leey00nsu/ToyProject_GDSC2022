@@ -1,6 +1,6 @@
 import datetime
 from contents.models import NewPost
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 def update_post(request, id):
@@ -19,4 +19,4 @@ def update_post(request, id):
         post.save()
        
         
-    return render(request, 'contents/content_view.html', {'OpenPost' : post})
+    return redirect('/')

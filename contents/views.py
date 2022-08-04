@@ -16,9 +16,14 @@ def post_new(request):
         post.last_modified = post.date
         post.title = request.POST['title']
         post.content = request.POST['body']
-        post.tag = request.POST['tag']
+        
+        if (request.POST['tag'] == '1'):
+            post.tag = '일기'
+        elif (request.POST['tag'] == '2'):
+            post.tag = '메모'
+            
         try:
-            if (post.imgfile != ''):
+            if (request.FILES['imgfile'] != ''):
                 post.imgfile = request.FILES['imgfile']
             else:
                 post.imgfile = None

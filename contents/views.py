@@ -15,11 +15,14 @@ def post_new(request):
         post.last_modified = post.date
         post.title = request.POST['title']
         post.content = request.POST['body']
-        post.imgfile = request.FILES['imgfile']
+        try:
+          post.imgfile = request.FILES['imgfile']
+        except:
+          post.imgfile = None
         
         post.save()
        
         
-    return render(request, 'contents/content.html', {'OpenPost' : post})
+    return redirect('/')
     
         

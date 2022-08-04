@@ -22,3 +22,4 @@ class NewPost(models.Model):
                                   format='JPEG', options={'quality': 90},
                                   blank=True)
     content = models.TextField(max_length=4000, null=True)
+    tag = models.TextField(max_length=12, null=True)

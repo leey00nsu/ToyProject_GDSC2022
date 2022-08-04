@@ -14,11 +14,14 @@ def post_new(request):
         post.date = datetime.datetime.now()
         post.title = request.POST['title']
         post.content = request.POST['body']
-        post.imgfile = request.FILES['imgfile']
+        try:
+          post.imgfile = request.FILES['imgfile']
+        except:
+          post.imgfile = None
         
         post.save()
        
         
-    return render(request, 'contents/content.html')
+    return redirect('/')
     
         

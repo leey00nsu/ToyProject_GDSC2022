@@ -15,13 +15,13 @@ def post_new(request):
         post.title = request.POST['title']
         post.content = request.POST['body']
         try:
-          post.image = request.FILES['imgfile']
+          post.imgfile = request.FILES['imgfile']
         except:
-          post.image = None
+          post.imgfile = None
         
         post.save()
        
         
-    return render(request, 'contents/content.html')
+    return redirect('/')
     
         

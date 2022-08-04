@@ -7,5 +7,3 @@ def open_post(request, id):
     
     #contents/content12312.html로 세부내용을 OpenPost라는 이름으로 보냄.
     return render(request, 'contents/content_view.html', {'OpenPost' : OpenPost})
-
-

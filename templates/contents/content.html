@@ -10,7 +10,7 @@
 <!--  -->
 {% block content %}
 <div class="pt-5 pb-5 notosanskr">
-  <div class="d-flex justify-content-start ms-5">
+  <div class="d-flex justify-content-start mx-5">
     <div class="d-flex flex-column ms-5">
       <div class="sub-text text-bold">📝 내 기록</div>
       <div class="sub-text text-regular">
@@ -21,141 +21,146 @@
         <button class="btn-tag fs-5 me-4">일기</button>
         <button class="btn-tag fs-5 me-4">메모</button>
       </div>
-      <div class="pt-5 ms-5 d-flex">
-        <div
-          class="content-box drop-shadow me-4 d-flex justify-content-center align-items-center"
-        >
-          <button
-            class="btn-add drop-shadow d-flex flex-column justify-content-center align-items-center main-text text-secondary fs-3"
-            data-bs-toggle="modal"
-            data-bs-target="#PostModal"
+      <div class="container">
+        <div class="pt-5 row row-cols-6">
+          <div
+            class="content-box drop-shadow col d-flex justify-content-center align-items-center"
           >
-            ＋
-          </button>
-        </div>
+            <button
+              class="btn-add drop-shadow d-flex flex-column justify-content-center align-items-center main-text text-secondary fs-3"
+              data-bs-toggle="modal"
+              data-bs-target="#PostModal"
+            >
+              ＋
+            </button>
+          </div>
 
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
-      </div>
-      <div class="pt-5 ms-5 d-flex">
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
-        <div class="content-box drop-shadow me-4"></div>
+          {% for post in PostList %}
+
+          <div class="col content-box drop-shadow">
+            <a href="/post_detail/{{post.pk}}">
+              <div><h1>{{post.content|truncatechars:8}}</h1></div>
+              <div>{{ post.content|truncatechars:10 }}</div>
+              <img
+                src="{{post.imgfile.url}}"
+                alt=""
+                width="100%"
+                class="d-flex align-items-end"
+              />
+            </a>
+          </div>
+
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- 업로드 모달 화면 -->
-<div
-  class="modal fade"
-  id="PostModal"
-  tabindex="-1"
-  aria-labelledby="PostModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <form
-        action="{% url 'contents:post_new' %}"
-        method="POST"
-        enctype="multipart/form-data"
-      >
-        {% csrf_token %}
-        <div class="modal-header">
-          <button
-            value="upload"
-            type="submit"
-            class="modal-title fs-5 border-0 bg-white text-primary"
-            id="PostModalLabel"
-          >
-            업로드
-          </button>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <div class="d-flex flex-column">
-            <!-- 사진 업로드 -->
-            <label for="imgfile">
+  <!-- 업로드 모달 화면 -->
+  <div
+    class="modal fade"
+    id="PostModal"
+    tabindex="-1"
+    aria-labelledby="PostModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <form
+          action="{% url 'contents:post_new' %}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div class="modal-header">
+            <button
+              value="upload"
+              type="submit"
+              class="modal-title fs-5 border-0 bg-white text-primary"
+              id="PostModalLabel"
+            >
+              업로드
+            </button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex flex-column">
+              <!-- 사진 업로드 -->
+              <label for="imgfile">
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center hover-dark"
+                >
+                  <img src="{%static 'images/upload.png' %}" />
+                  <div class="fs-5 text-primary">여기를 눌러 업로드</div>
+                </div>
+              </label>
+              <input
+                class="invisible"
+                type="file"
+                id="imgfile"
+                name="imgfile"
+                onchange="loadFile(this)"
+              />
               <div
-                class="d-flex flex-column justify-content-center align-items-center hover-dark"
-              >
-                <img src="{%static 'images/upload.png' %}" />
-                <div class="fs-5 text-primary">여기를 눌러 업로드</div>
-              </div>
-            </label>
-            <input
-              class="invisible"
-              type="file"
-              id="imgfile"
-              name="imgfile"
-              onchange="loadFile(this)"
-            />
-            <div
-              class="image-show d-flex flex-row justify-content-center pb-5"
-              id="image-show"
-            ></div>
+                class="image-show d-flex flex-row justify-content-center pb-5"
+                id="image-show"
+              ></div>
 
-            <!-- 태그,시간 -->
+              <!-- 태그,시간 -->
 
-            <div>
-              <div class="row justify-content-start align-items-center">
-                <div class="fs-5 col-auto">태그 :</div>
-                <div class="fs-5 col-auto">
-                  <select class="form-select" aria-label="Tag-Select">
-                    <option selected>태그를 선택해주세요</option>
-                    <option value="1">일기</option>
-                    <option value="2">메모</option>
-                  </select>
+              <div>
+                <div class="row justify-content-start align-items-center">
+                  <div class="fs-5 col-auto">태그 :</div>
+                  <div class="fs-5 col-auto">
+                    <select class="form-select" aria-label="Tag-Select">
+                      <option selected>태그를 선택해주세요</option>
+                      <option value="1">일기</option>
+                      <option value="2">메모</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <div class="row justify-content-start align-items-center">
-                <div class="fs-5 col-auto">작성일 :</div>
-                <div class="fs-5 col-auto">{{now}}</div>
+              <div>
+                <div class="row justify-content-start align-items-center">
+                  <div class="fs-5 col-auto">작성일 :</div>
+                  <div class="fs-5 col-auto">{{now}}</div>
+                </div>
+              </div>
+
+              <!-- 수평가로선 -->
+              <hr class="mt-5 mb-5" />
+
+              <!-- 내용 -->
+              <div>
+                <span>
+                  <input
+                    class="fs-4 text-bold w-100"
+                    name="title"
+                    placeholder="제목"
+                  />
+                </span>
+              </div>
+              <div class="mt-3">
+                <span>
+                  <textarea
+                    rows="10"
+                    style="resize: none"
+                    class="w-100"
+                    name="body"
+                    placeholder="내용"
+                  ></textarea>
+                </span>
               </div>
             </div>
-
-            <!-- 수평가로선 -->
-            <hr class="mt-5 mb-5" />
-
-            <!-- 내용 -->
-            <div>
-              <span>
-                <input
-                  class="fs-4 text-bold w-100"
-                  name="title"
-                  placeholder="제목"
-                />
-              </span>
-            </div>
-            <div class="mt-3">
-              <span>
-                <textarea
-                  rows="10"
-                  style="resize: none"
-                  class="w-100"
-                  name="body"
-                  placeholder="내용"
-                ></textarea>
-              </span>
-            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
+  {% endblock %}
 </div>
-{% endblock %}

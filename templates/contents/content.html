@@ -14,7 +14,7 @@
     <div class="d-flex flex-column ms-5">
       <div class="sub-text text-bold">📝 내 기록</div>
       <div class="sub-text text-regular">
-        {{ user.username }}님 오늘 하루를 기록해보세요.
+        {{ user.username }}님의 오늘 하루를 기록해보세요.
       </div>
       <div class="pt-3">
         <button class="btn-tag fs-5 me-4">전체</button>
@@ -41,12 +41,14 @@
             <a href="/post_detail/{{post.pk}}">
               <div><h1>{{post.content|truncatechars:8}}</h1></div>
               <div>{{ post.content|truncatechars:10 }}</div>
-              <img
-                src="{{post.imgfile.url}}"
-                alt=""
-                width="100%"
-                class="d-flex align-items-end"
-              />
+              {% if post.imgfile.url != '' %}
+                <img
+                  src="{{post.imgfile.url}}"
+                  alt=""
+                  width="100%"
+                  class="d-flex align-items-end"
+                />
+              {% endif %}
             </a>
           </div>
 
@@ -119,7 +121,7 @@
                 <div class="row justify-content-start align-items-center">
                   <div class="fs-5 col-auto">태그 :</div>
                   <div class="fs-5 col-auto">
-                    <select class="form-select" aria-label="Tag-Select">
+                    <select class="form-select" aria-label="Tag-Select" name="tag">
                       <option selected>태그를 선택해주세요</option>
                       <option value="1">일기</option>
                       <option value="2">메모</option>

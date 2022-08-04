@@ -8,6 +8,7 @@ def post_new(request):
     
     if request.method == 'POST':
         
+        print(request.POST)
         
         post = NewPost()
         post.user = request.user.username
@@ -15,10 +16,14 @@ def post_new(request):
         post.last_modified = post.date
         post.title = request.POST['title']
         post.content = request.POST['body']
+        post.tag = request.POST['tag']
         try:
-          post.imgfile = request.FILES['imgfile']
+            if (post.imgfile != ''):
+                post.imgfile = request.FILES['imgfile']
+            else:
+                post.imgfile = None
         except:
-          post.imgfile = None
+            post.imgfile = None
         
         post.save()
        

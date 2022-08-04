@@ -12,22 +12,24 @@
     <div class="modal-body">
       <div class="d-flex flex-column">
         <!-- 사진 업로드 -->
+        {% if OpenPost.imgfile.url != '' %}
         <div type="button" class="d-flex flex-column justify-content-center align-items-center">
           <img src="{{OpenPost.imgfile.url}}" width="800 px" height="auto">
         </div>
+        {% endif %}
   
             <!-- 태그,시간 -->
         <div>
           <span class="fs-5">태그 :</span>
-          <span class="fs-5"> <button class="btn-tag fs-5 notosanskr me-4">일기</button></span>
+          <span class="fs-5"> <button class="btn-tag fs-5 notosanskr me-4">{{OpenPost.tag}}</button></span>
         </div>
         <div>
           <span class="fs-5">작성일 :</span>
-          <span class="fs-5">2022년 7월 21일</span>
+          <span class="fs-5">{{OpenPost.date}}</span>
         </div>
         <div>
           <span class="fs-5">수정일 :</span>
-          <span class="fs-5">2022년 7월 21일</span>
+          <span class="fs-5">{{OpenPost.last_modified}}</span>
         </div>
   
             <!-- 수평가로선 -->

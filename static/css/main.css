@@ -80,7 +80,7 @@ a {
 /* 메모 박스 */
 .content-box {
   border: none;
-  width: 216px;
+  width: 210px;
   height: 312px;
   border-radius: 25px;
   text-align: center;
@@ -97,4 +97,15 @@ a {
   background-color: darkgray;
   opacity: 0.9;
   cursor: pointer;
+}
+
+.content:after {
+  content: "";
+  border: none;
+  width: 210px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  visibility: hidden;
 }

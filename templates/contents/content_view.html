@@ -58,10 +58,11 @@
         <div class="fs-5 col-auto">{{OpenPost.content}}</div>
       </div>
     </div>
-    <form action="contents_update.html" method="POST">
-      {%csrf_token%}
-      <input type="button" onclick="href='contents_update.html';" value="수정"/>
-    </form>
+
+    <a class="col content-box drop-shadow overflow-hidden" href="/redirect/{{OpenPost.pk}}">asdf</a>
+
+    
+
   </div>
 </div>
 {% endblock %}

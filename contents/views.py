@@ -16,7 +16,7 @@ def post_new(request):
         post.date = datetime.datetime.now()
         post.last_modified = post.date
         post.title = request.POST['title']
-        post.content = re.sub('\r\n|\n|\r', '<br/>', request.POST['body'])
+        post.content = request.POST['body']
         	
 
         

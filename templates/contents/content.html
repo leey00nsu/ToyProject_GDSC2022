@@ -10,8 +10,8 @@
 <!--  -->
 {% block content %}
 <div class="pt-5 pb-5 notosanskr">
-  <div class="d-flex justify-content-start mx-5">
-    <div class="d-flex flex-column ms-5">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
       <div class="sub-text text-bold">📝 내 기록</div>
       <div class="sub-text text-regular">
         {{ user.username }}님의 오늘 하루를 기록해보세요.
@@ -22,9 +22,11 @@
         <button class="btn-tag fs-5 me-4">메모</button>
       </div>
       <div class="container">
-        <div class="pt-5 row row-cols-6">
+        <div
+          class="d-flex flex-wrap row row-cols-auto justify-content-between pt-5 gy-5 content"
+        >
           <div
-            class="content-box drop-shadow col d-flex justify-content-center align-items-center"
+            class="col content-box drop-shadow d-flex justify-content-center align-items-center"
           >
             <button
               class="btn-add drop-shadow d-flex flex-column justify-content-center align-items-center main-text text-secondary fs-3"
@@ -37,26 +39,30 @@
 
           {% for post in PostList %}
 
-          <div class="col content-box drop-shadow">
-            <a href="/post_detail/{{post.pk}}">
-              <div><h1>{{post.content|truncatechars:8}}</h1></div>
-              <div>{{ post.content|truncatechars:10 }}</div>
-              {% if post.imgfile.url != '' %}
-                <img
-                  src="{{post.imgfile.url}}"
-                  alt=""
-                  width="100%"
-                  class="d-flex align-items-end"
-                />
-              {% endif %}
-            </a>
-          </div>
+          <a
+            class="col content-box drop-shadow overflow-hidden"
+            href="/post_detail/{{post.pk}}"
+          >
+            <div class="fs-5 text-black">
+              <h1>{{post.content|truncatechars:8}}</h1>
+            </div>
+            <div class="fs-5 text-secondary">
+              {{ post.content|truncatechars:10 }}
+            </div>
+            {% if post.imgfile.url != '' %}
+            <img
+              src="{{post.imgfile.url}}"
+              alt=""
+              width="100%"
+              class="d-flex img-fulid"
+            />
+            {% endif %}
+          </a>
 
           {% endfor %}
         </div>
       </div>
-    <!--</form>-->
-
+      <!--</form>-->
     </div>
   </div>
 
@@ -121,7 +127,11 @@
                 <div class="row justify-content-start align-items-center">
                   <div class="fs-5 col-auto">태그 :</div>
                   <div class="fs-5 col-auto">
-                    <select class="form-select" aria-label="Tag-Select" name="tag">
+                    <select
+                      class="form-select"
+                      aria-label="Tag-Select"
+                      name="tag"
+                    >
                       <option selected>태그를 선택해주세요</option>
                       <option value="1">일기</option>
                       <option value="2">메모</option>

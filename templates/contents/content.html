@@ -44,7 +44,7 @@
             href="/post_detail/{{post.pk}}"
           >
             <div class="fs-5 text-black">
-              <h1>{{post.content|truncatechars:8}}</h1>
+              <h1>{{post.title|truncatechars:8}}</h1>
             </div>
             <div class="fs-5 text-secondary">
               {{ post.content|truncatechars:10 }}

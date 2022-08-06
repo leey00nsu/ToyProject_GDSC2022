@@ -19,4 +19,4 @@ def update_post(request, id):
         post.save()
        
         
-    return redirect('/')
+    return redirect('/', {'OpenPost' : post, 'id' : id})

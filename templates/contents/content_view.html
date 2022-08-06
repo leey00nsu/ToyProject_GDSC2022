@@ -25,8 +25,10 @@
     <!-- 태그,시간 -->
     <div>
       <div class="row justify-content-start align-items-center">
+        {% if OpenPost.tag != None %}
         <div class="fs-5 col-auto">태그 :</div>
         <div class="btn-tag fs-5 col-auto">{{OpenPost.tag}}</div>
+        {% endif %}
       </div>
     </div>
     <div>
@@ -48,7 +50,7 @@
     <!-- 내용 -->
     <div>
       <div class="row justify-content-start align-items-center">
-        <div class="fs-5 col-auto">{{OpenPost.title}}</div>
+        <div class="fs-5 col-auto"><h1>{{OpenPost.title}}</h1><br></div>
       </div>
     </div>
     <div>

@@ -24,7 +24,7 @@ class Main(APIView):
       
       # 로그인한 유저인 경우
       if cur_user.is_authenticated:
-        return render(request, 'contents/content.html',{'now':now,'PostList' : PostList, 'view_mode' : view_mode})
+        return render(request, 'contents/content.html',{'now':now,'PostList' : PostList, 'view_mode' : view_mode.view_mode})
       else:
       # 로그인 하지 않은 유저인 경우
         return render(request, 'main_view/main_intro.html')

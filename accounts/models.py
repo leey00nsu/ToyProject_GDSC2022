@@ -20,7 +20,7 @@ class Profile(models.Model):
     nickname = models.CharField('별명', max_length=20, unique=True)
     about = models.CharField(max_length=300, blank=True)
     
-    
+    view_mode = models.CharField(max_length=20, blank=True)
     
     picture = ProcessedImageField(upload_to=user_path, 
                                   processors=[ResizeToFill(150, 150)], 

@@ -17,27 +17,37 @@
         {{ user.username }}님의 일상을 사진으로 기록해보세요.
       </div>
       <div class="pt-3">
+        <form
+        action="{% url 'contents:change_view_mode' %}"
+        method="POST"
+        enctype="multipart/form-data">
+        {% csrf_token %}
         <button
-          onclick="changeTag(this.value)"
           value="all"
           class="btn-tag fs-5 me-4"
+          name="all"
+          type="submit"
         >
           전체
         </button>
         <button
-          onclick="changeTag(this.value)"
           value="diary"
           class="btn-tag fs-5 me-4"
+          name="diary"
+          type="submit"
         >
           일기
         </button>
         <button
-          onclick="changeTag(this.value)"
           value="memo"
           class="btn-tag fs-5 me-4"
+          name="memo"
+          type="submit"
         >
           메모
         </button>
+      </form>
+
       </div>
       <div class="container">
         <div class="d-flex flex-wrap justify-content-start pt-5 content">
@@ -53,7 +63,13 @@
             </button>
           </div>
 
+
+
+
+
           {% for post in PostList %}
+          
+          {% if view_mode == 'diary' and post.tag == '일기' or view_mode == 'memo' and post.tag == '메모' or view_mode == 'all' %}
           <a class="content-table mb-5" href="/post_detail/{{post.pk}}">
             <div
               class="content-box drop-shadow d-flex flex-column overflow-hidden"
@@ -81,7 +97,16 @@
               {% endif %}
             </div>
           </a>
+          {% endif %}
+
+
+
+
           {% endfor %}
+
+
+
+
         </div>
       </div>
       <!--</form>-->

@@ -4,21 +4,19 @@ from this import d
 from django.shortcuts import get_object_or_404,render, redirect
 from django.forms import ModelForm
 from .models import NewPost
+from accounts.models import *
 
 # Create your views here.
 def post_new(request):
     
     if request.method == 'POST':
-        
-        
+             
         post = NewPost()
         post.user = request.user.username
         post.date = datetime.datetime.now()
         post.last_modified = post.date
         post.title = request.POST['title']
         post.content = request.POST['content']
-        	
-
         
         
         if (request.POST['tag'] == '1'):
@@ -66,3 +64,12 @@ def post_update(request):
        
         
     return redirect('/')
+
+def change_view_mode(request):
+    view_mode = get_object_or_404(Profile, pk=request.user.id)
+    view_mode_list = {'all', 'diary', 'memo'}
+    for mode in view_mode_list:
+        if (mode in request.POST):
+            view_mode.view_mode = mode
+            view_mode.save()
+            return redirect('/')

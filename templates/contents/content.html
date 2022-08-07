@@ -82,7 +82,9 @@
                   {{ post.content }}
                 </div>
                 <div class="fs-5 text-secondary text-truncate px-1">
+                  {% if post.tag != None %}
                   {{ post.tag }}
+                  {% endif %}
                 </div>
               </div>
               {% if post.imgfile.url != '' %}

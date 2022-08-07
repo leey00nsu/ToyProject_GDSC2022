@@ -13,12 +13,7 @@
     <!-- 사진 업로드 -->
     {% if OpenPost.imgfile.url != '' %}
     <div class="d-flex flex-row justify-content-center">
-      <img
-        class="img-fluid"
-        src="{{OpenPost.imgfile.url}}"
-        width="800 px"
-        height="auto"
-      />
+      <img class="img-fluid content-img" src="{{OpenPost.imgfile.url}}" />
     </div>
     {% endif %}
 

@@ -14,7 +14,7 @@
     <div class="d-flex flex-column">
       <div class="sub-text text-bold">📝 내 기록</div>
       <div class="sub-text text-regular">
-        {{ user.username }}님의 오늘 하루를 기록해보세요.
+        {{ user.username }}님의 일상을 사진으로 기록해보세요.
       </div>
       <div class="pt-3">
         <button class="btn-tag fs-5 me-4">전체</button>
@@ -43,20 +43,22 @@
             class="col content-box drop-shadow overflow-hidden"
             href="/post_detail/{{post.pk}}"
           >
-            <div class="fs-5 text-black">
-              <h1>{{post.content|truncatechars:8}}</h1>
+            <div class="d-flex flex-column">
+              <div class="fs-5 text-black">
+                <h1>{{post.content|truncatechars:8}}</h1>
+              </div>
+              <div class="fs-5 text-secondary">
+                {{ post.content|truncatechars:10 }}
+              </div>
+              {% if post.imgfile.url != '' %}
+              <img
+                src="{{post.imgfile.url}}"
+                alt=""
+                width="100%"
+                class="d-flex img-fulid"
+              />
+              {% endif %}
             </div>
-            <div class="fs-5 text-secondary">
-              {{ post.content|truncatechars:10 }}
-            </div>
-            {% if post.imgfile.url != '' %}
-            <img
-              src="{{post.imgfile.url}}"
-              alt=""
-              width="100%"
-              class="d-flex img-fulid"
-            />
-            {% endif %}
           </a>
 
           {% endfor %}
@@ -101,12 +103,13 @@
           <div class="modal-body">
             <div class="d-flex flex-column">
               <!-- 사진 업로드 -->
-              <label for="imgfile">
+              <label class="upload-hover" for="imgfile">
                 <div
-                  class="d-flex flex-column justify-content-center align-items-center hover-dark"
+                  class="d-flex flex-column justify-content-center align-items-center"
                 >
                   <img src="{%static 'images/upload.png' %}" />
                   <div class="fs-5 text-primary">여기를 눌러 업로드</div>
+                  <div class="hover-dark"></div>
                 </div>
               </label>
               <input

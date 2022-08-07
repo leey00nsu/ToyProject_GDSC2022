@@ -7,6 +7,11 @@
 }
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 footer {
   border-top: 1px solid #e0e0e0;
 }
@@ -93,19 +98,68 @@ a {
   box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.25);
 }
 
-.hover-dark:hover {
-  background-color: darkgray;
-  opacity: 0.9;
+.upload-hover {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.upload-hover:hover .hover-dark {
   cursor: pointer;
+  opacity: 0.3;
+  transition: 0.2s;
 }
 
-.content:after {
+.upload-hover > div {
+  z-index: 1;
+}
+
+.hover-dark {
   content: "";
-  border: none;
-  width: 210px;
-  border-radius: 25px;
-  text-align: center;
-  background-color: white;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: black;
+  background-size: cover;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.content-img {
+  width: 800px;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+  .content:after {
+    content: "";
+    border: none;
+    width: 444px;
+    border-radius: 25px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 1400px) {
+  .content:after {
+    content: "";
+    border: none;
+    width: 210px;
+    border-radius: 25px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    visibility: hidden;
+  }
 }

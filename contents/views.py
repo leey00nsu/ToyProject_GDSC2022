@@ -47,6 +47,8 @@ def post_update(request):
         
         post.last_modified = datetime.datetime.now()
         post.title = request.POST['title']
+        if (post.title == None):
+            post.title = "제목없음"
         post.content = request.POST['content']
         	
         post.tag = request.POST.get('tag','메모')

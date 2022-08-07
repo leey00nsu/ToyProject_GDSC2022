@@ -132,7 +132,7 @@ a {
 /* 반응형 미디어쿼리 */
 @media (max-width: 576px) {
   .content > .content-table {
-    margin-right: 30px;
+    margin-right: 10px;
   }
   .content > .content-table:nth-child(2n + 2) {
     margin-right: 0px;
@@ -182,4 +182,21 @@ a {
   .content > .content-table:nth-child(5n + 5) {
     margin-right: 0px;
   }
+}
+
+/* 버튼 상호작용 */
+.content > .content-table {
+  transition: 0.2s;
+}
+
+.content > .content-table > button {
+  transition: 0.2s;
+}
+
+.content > .content-table:nth-child(n + 2):hover {
+  transform: scale(1.2);
+}
+
+.content > .content-table > button:hover {
+  transform: scale(1.2);
 }

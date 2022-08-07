@@ -13,7 +13,7 @@
   <div class="d-flex justify-content-center">
     <div class="d-flex flex-column">
       <div class="sub-text text-bold">📝 내 기록</div>
-      <div class="sub-text text-regular">
+      <div class="sub-text text-regular text-wrap">
         {{ user.username }}님의 일상을 사진으로 기록해보세요.
       </div>
       <div class="pt-3">
@@ -36,21 +36,26 @@
           </div>
 
           {% for post in PostList %}
-          <a class="content-table" href="/post_detail/{{post.pk}}">
+          <a class="content-table mb-5" href="/post_detail/{{post.pk}}">
             <div
-              class="content-box drop-shadow overflow-hidden mb-5 d-flex flex-column justify-content-between"
+              class="content-box drop-shadow d-flex flex-column overflow-hidden"
             >
-              <div>
-                <div class="fs-5 text-black">
-                  <h1>{{post.title|truncatechars:8}}</h1>
+              <div class="h-50 d-flex flex-column justify-content-start">
+                <div class="fs-4 text-black text-truncate px-1">
+                  {{post.title}}
                 </div>
-                <div class="fs-5 text-secondary">
-                  {{ post.content|truncatechars:10 }}
+                <div class="fs-5 text-secondary text-truncate px-1">
+                  {{ post.content }}
                 </div>
               </div>
               {% if post.imgfile.url != '' %}
-              <div>
-                <img src="{{post.imgfile.url}}" alt="" class="img-fluid" />
+              <div class="h-50">
+                <img
+                  src="{{post.imgfile.url}}"
+                  alt=""
+                  class="img-fluid w-100 h-100"
+                  style="object-fit: cover"
+                />
               </div>
               {% endif %}
             </div>

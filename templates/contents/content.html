@@ -76,7 +76,11 @@
             >
               <div class="h-50 d-flex flex-column justify-content-start">
                 <div class="fs-4 text-black text-truncate px-1">
+                  {% if post.title == '' %}
+                  제목없음
+                  {% else %}
                   {{post.title}}
+                  {% endif %}
                 </div>
                 <div class="fs-5 text-secondary text-truncate px-1">
                   {{ post.content }}

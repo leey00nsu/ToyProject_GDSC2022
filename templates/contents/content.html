@@ -22,11 +22,9 @@
         <button class="btn-tag fs-5 me-4">메모</button>
       </div>
       <div class="container">
-        <div
-          class="d-flex flex-wrap row row-cols-auto justify-content-between pt-5 gy-5 content"
-        >
+        <div class="d-flex flex-wrap justify-content-start pt-5 content">
           <div
-            class="col content-box drop-shadow d-flex justify-content-center align-items-center"
+            class="content-table content-box drop-shadow d-flex justify-content-center align-items-center mb-5"
           >
             <button
               class="btn-add drop-shadow d-flex flex-column justify-content-center align-items-center main-text text-secondary fs-3"
@@ -38,29 +36,25 @@
           </div>
 
           {% for post in PostList %}
-
-          <a
-            class="col content-box drop-shadow overflow-hidden"
-            href="/post_detail/{{post.pk}}"
-          >
-            <div class="d-flex flex-column">
-              <div class="fs-5 text-black">
-                <h1>{{post.content|truncatechars:8}}</h1>
-              </div>
-              <div class="fs-5 text-secondary">
-                {{ post.content|truncatechars:10 }}
+          <a class="content-table" href="/post_detail/{{post.pk}}">
+            <div
+              class="content-box drop-shadow overflow-hidden mb-5 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <div class="fs-5 text-black">
+                  <h1>{{post.title|truncatechars:8}}</h1>
+                </div>
+                <div class="fs-5 text-secondary">
+                  {{ post.content|truncatechars:10 }}
+                </div>
               </div>
               {% if post.imgfile.url != '' %}
-              <img
-                src="{{post.imgfile.url}}"
-                alt=""
-                width="100%"
-                class="d-flex img-fulid"
-              />
+              <div>
+                <img src="{{post.imgfile.url}}" alt="" class="img-fluid" />
+              </div>
               {% endif %}
             </div>
           </a>
-
           {% endfor %}
         </div>
       </div>

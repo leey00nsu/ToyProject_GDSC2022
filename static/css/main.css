@@ -129,37 +129,57 @@ a {
   height: auto;
 }
 
-@media (min-width: 576px) {
+/* 반응형 미디어쿼리 */
+@media (max-width: 576px) {
+  .content > .content-table {
+    margin-right: 30px;
+  }
+  .content > .content-table:nth-child(2n + 2) {
+    margin-right: 0px;
+  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) and (max-width: 768px) {
+  .content > .content-table {
+    margin-right: 80px;
+  }
+  .content > .content-table:nth-child(2n + 2) {
+    margin-right: 0px;
+  }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) and (max-width: 992px) {
+  .content > .content-table {
+    margin-right: 30px;
+  }
+  .content > .content-table:nth-child(3n + 3) {
+    margin-right: 0px;
+  }
 }
 
-@media (min-width: 1200px) {
-  .content:after {
-    content: "";
-    border: none;
-    width: 444px;
-    border-radius: 25px;
-    text-align: center;
-    background-color: white;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    visibility: hidden;
+@media (min-width: 992px) and (max-width: 1200px) {
+  .content > .content-table {
+    margin-right: 30px;
+  }
+  .content > .content-table:nth-child(4n + 4) {
+    margin-right: 0px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .content > .content-table {
+    margin-right: 90px;
+  }
+  .content > .content-table:nth-child(4n + 4) {
+    margin-right: 0px;
   }
 }
 
 @media (min-width: 1400px) {
-  .content:after {
-    content: "";
-    border: none;
-    width: 210px;
-    border-radius: 25px;
-    text-align: center;
-    background-color: white;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    visibility: hidden;
+  .content > .content-table {
+    margin-right: 60px;
+  }
+  .content > .content-table:nth-child(5n + 5) {
+    margin-right: 0px;
   }
 }

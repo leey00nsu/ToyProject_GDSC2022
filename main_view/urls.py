@@ -29,7 +29,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('post_new/', include('contents.urls')),
     path('post_detail/', include('post_detail.urls')),
-
+    path('update_post/', include('update_post.urls')),
+    path('redirect/', include('update_post_html.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

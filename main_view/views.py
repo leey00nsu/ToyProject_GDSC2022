@@ -16,14 +16,12 @@ class Main(APIView):
       PostList = NewPost.objects.filter(Q(user = request.user.username) )
       PostList = PostList.order_by('-date')
       
-      
-      view_mode = get_object_or_404(Profile, pk=request.user.id)
-      if (view_mode.view_mode == None):
-            view_mode.view_mode = 'all'
-            view_mode.save()
-      
       # 로그인한 유저인 경우
       if cur_user.is_authenticated:
+        view_mode = get_object_or_404(Profile, pk=request.user.id)
+        if (view_mode.view_mode == None):
+              view_mode.view_mode = 'all'
+              view_mode.save()
         return render(request, 'contents/content.html',{'now':now,'PostList' : PostList, 'view_mode' : view_mode.view_mode})
       else:
       # 로그인 하지 않은 유저인 경우

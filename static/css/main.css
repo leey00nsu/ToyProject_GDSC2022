@@ -130,16 +130,16 @@ a {
 }
 
 /* 반응형 미디어쿼리 */
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .content > .content-table {
-    margin-right: 10px;
+    margin-right: 30px;
   }
   .content > .content-table:nth-child(2n + 2) {
     margin-right: 0px;
   }
 }
 
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .content > .content-table {
     margin-right: 80px;
   }
@@ -148,7 +148,7 @@ a {
   }
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .content > .content-table {
     margin-right: 30px;
   }
@@ -157,7 +157,7 @@ a {
   }
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .content > .content-table {
     margin-right: 30px;
   }

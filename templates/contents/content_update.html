@@ -1,0 +1,130 @@
+{% extends "main_view/main.html" %}
+<!--  -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+<!--  -->
+{% block head %}
+<!--  -->
+{% endblock%}
+<!--  -->
+{% block content %}
+<div class="pt-5 pb-5 notosanskr w-100">
+  <form
+    action="{% url 'contents:post_update' %}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <div class="d-flex flex-column align-items-center">
+      <!-- 사진 업로드 -->
+      {% if post.imgfile.url != '' %}
+      <div>
+        <label class="upload-hover" for="imgfile">
+          <div class="d-flex flex-row justify-content-center">
+            <div
+              id="content-img"
+              class=""
+            /><img class="img-fluid content-img" src="{{post.imgfile.url}}"/></div>
+            <div class="hover-dark"></div>
+          </div>
+        </label>
+        <input
+          class="invisible"
+          type="file"
+          id="imgfile"
+          name="imgfile"
+          onchange="updateFile(this)"
+        />
+      </div>
+      {% endif %}
+
+      <!-- 태그,시간 -->
+      <div class="pt-5 w-75 justify-content-center">
+        <div>
+          <div class="row align-items-center">
+            {% if post.tag != None %}
+            <div class="fs-5 col-auto">태그 :</div>
+            <div class="fs-5 col-auto">
+              <select class="form-select" aria-label="Tag-Select" name="tag">
+                <option hidden="" selected="selected" value="{{post.tag}}">
+                  {{post.tag}}
+                </option>
+                <option value="일기">일기</option>
+                <option value="메모">메모</option>
+              </select>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <div>
+          <div class="row align-items-center">
+            <div class="fs-5 col-auto">작성일 :</div>
+            <div class="fs-5 col-auto">{{post.date}}</div>
+          </div>
+        </div>
+        <div>
+          <div class="row align-items-center">
+            <div class="fs-5 col-auto">수정일 :</div>
+            <div class="fs-5 col-auto">{{post.last_modified}}</div>
+          </div>
+        </div>
+        <div>
+          <div class="mt-1 row">
+            <div class="col-auto">
+              <button
+                value="update"
+                type="submit"
+                class="fs-5 border-0 bg-white text-primary"
+              >
+                저장하기
+              </button>
+            </div>
+            <div class="col-auto">
+              <a href="/post_detail/{{post.pk}}/">
+                <div value="delete" type="button" class="fs-5 text-primary">
+                  취소
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 수평가로선 -->
+        <hr class="mt-4 mb-4" />
+
+        <!-- 내용 -->
+        <div>
+          <div class="row justify-content-start align-items-center">
+            <div class="fs-5">
+              <input
+                class="fs-4 text-bold w-100"
+                name="title"
+                placeholder="{{post.title}}"
+                value="{{post.title}}"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row justify-content-start align-items-center">
+            <div class="fs-5">
+              <textarea
+                wrap="hard"
+                rows="10"
+                style="resize: none"
+                class="w-100"
+                name="content"
+                placeholder="{{post.content}}"
+                value="{{post.title}}"
+              >
+{{post.title}}</textarea
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input class="d-none" name="post_num" value="{{post.pk}}" />
+  </form>
+</div>
+{% endblock %}

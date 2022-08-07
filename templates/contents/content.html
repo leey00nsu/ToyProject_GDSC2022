@@ -9,17 +9,35 @@
 {% endblock%}
 <!--  -->
 {% block content %}
-<div class="pt-5 pb-5 notosanskr">
+<div class="pt-5 pb-5 notosanskr w-100">
   <div class="d-flex justify-content-center">
     <div class="d-flex flex-column">
-      <div class="sub-text text-bold">📝 내 기록</div>
-      <div class="sub-text text-regular text-wrap">
+      <div class="fs-2 text-bold">📝 내 기록</div>
+      <div class="fs-2 text-regular text-wrap">
         {{ user.username }}님의 일상을 사진으로 기록해보세요.
       </div>
       <div class="pt-3">
-        <button class="btn-tag fs-5 me-4">전체</button>
-        <button class="btn-tag fs-5 me-4">일기</button>
-        <button class="btn-tag fs-5 me-4">메모</button>
+        <button
+          onclick="changeTag(this.value)"
+          value="all"
+          class="btn-tag fs-5 me-4"
+        >
+          전체
+        </button>
+        <button
+          onclick="changeTag(this.value)"
+          value="diary"
+          class="btn-tag fs-5 me-4"
+        >
+          일기
+        </button>
+        <button
+          onclick="changeTag(this.value)"
+          value="memo"
+          class="btn-tag fs-5 me-4"
+        >
+          메모
+        </button>
       </div>
       <div class="container">
         <div class="d-flex flex-wrap justify-content-start pt-5 content">
@@ -46,6 +64,9 @@
                 </div>
                 <div class="fs-5 text-secondary text-truncate px-1">
                   {{ post.content }}
+                </div>
+                <div class="fs-5 text-secondary text-truncate px-1">
+                  {{ post.tag }}
                 </div>
               </div>
               {% if post.imgfile.url != '' %}
@@ -168,7 +189,7 @@
                     rows="10"
                     style="resize: none"
                     class="w-100"
-                    name="body"
+                    name="content"
                     placeholder="내용"
                   ></textarea>
                 </span>

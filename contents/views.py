@@ -1,6 +1,7 @@
 import datetime
 import re
-from django.shortcuts import render, redirect
+from this import d
+from django.shortcuts import get_object_or_404,render, redirect
 from django.forms import ModelForm
 from .models import NewPost
 
@@ -9,14 +10,13 @@ def post_new(request):
     
     if request.method == 'POST':
         
-        print(request.POST)
         
         post = NewPost()
         post.user = request.user.username
         post.date = datetime.datetime.now()
         post.last_modified = post.date
         post.title = request.POST['title']
-        post.content = request.POST['body']
+        post.content = request.POST['content']
         	
 
         
@@ -41,3 +41,28 @@ def post_new(request):
     return redirect('/')
     
         
+def post_update(request):
+
+    if request.method == 'POST':
+        post = get_object_or_404(NewPost, pk=request.POST['post_num'])
+        print(post.tag)
+        
+        post.last_modified = datetime.datetime.now()
+        post.title = request.POST['title']
+        post.content = request.POST['content']
+        	
+        post.tag = request.POST.get('tag','메모')
+        
+        
+        try:
+            if (request.FILES['imgfile'] != ''):
+                post.imgfile = request.FILES['imgfile']
+            else:
+                post.imgfile = None
+        except:
+            post.imgfile = None
+        
+        post.save()
+       
+        
+    return redirect('/')

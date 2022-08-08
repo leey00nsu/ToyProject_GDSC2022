@@ -8,14 +8,15 @@
 {% endblock%}
 <!--  -->
 {% block content %}
+<form
+class="needs-validation"
+action="{% url 'contents:post_update' %}"
+method="POST"
+enctype="multipart/form-data"
+novalidate
+>
 <div class="pt-5 pb-5 notosanskr w-100">
-  <form
-    class="needs-validation"
-    action="{% url 'contents:post_update' %}"
-    method="POST"
-    enctype="multipart/form-data"
-    novalidate
-  >
+
     {% csrf_token %}
     <div class="d-flex flex-column align-items-center">
       <!-- 사진 업로드 -->
@@ -93,6 +94,7 @@
 
         <!-- 수평가로선 -->
         <hr class="mt-4 mb-4" />
+        
 
         <!-- 내용 -->
         <div>
@@ -104,7 +106,10 @@
                 placeholder="{{post.title}}"
                 value="{{post.title}}"
                 required
-              />
+              >
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
             </div>
           </div>
         </div>
@@ -112,23 +117,24 @@
           <div class="row justify-content-start align-items-center mt-3">
             <div class="fs-5">
               <textarea
+                
                 wrap="hard"
                 rows="10"
                 style="resize: none"
                 class="form-control w-100"
                 name="content"
                 placeholder="{{post.content}}"
-                value="{{post.title}}"
-                required
-              >
-{{post.title}}</textarea
-              >
+                value="{{post.content}}" required>{{post.content}}</textarea>
+                <div class="invalid-feedback">
+                  Please choose a username.
+                </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
     <input class="d-none" name="post_num" value="{{post.pk}}" />
-  </form>
-</div>
+  </div>
+</form>
 {% endblock %}

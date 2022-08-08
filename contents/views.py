@@ -17,19 +17,12 @@ def post_new(request):
         post.last_modified = post.date
         post.title = request.POST['title']
         post.content = request.POST['content']
-        
-
-        if (request.POST['tag'] == '1'):
-            post.tag = '일기'
-        elif (request.POST['tag'] == '2'):
-            post.tag = '메모'
+        post.tag = request.POST['tag']
         
         
         try:
             if (request.FILES['imgfile'] != ''):
                 post.imgfile = request.FILES['imgfile']
-            else:             
-                post.imgfile = request.POST['tmpImg']
         except:
             post.imgfile = post.imgfile
         
@@ -43,13 +36,11 @@ def post_update(request):
 
     if request.method == 'POST':
         post = get_object_or_404(NewPost, pk=request.POST['post_num'])
-        print(post.tag)
         
         post.last_modified = datetime.datetime.now()
         post.title = request.POST['title']
-        post.content = request.POST['content']
-        	
-        post.tag = request.POST.get('tag','메모')
+        post.content = request.POST['content'] 
+        post.tag = request.POST['tag']
         
         
         try:

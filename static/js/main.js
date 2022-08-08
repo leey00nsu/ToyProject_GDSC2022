@@ -1,3 +1,19 @@
+// 전체 컨텐츠 저장
+var contents = document.getElementById("content").innerHTML;
+
+function refresh() {
+  var count = document.getElementById("content").childElementCount;
+  for (var i = count; i < 6; i++) {
+    var divs = document.createElement("div");
+    divs.className = "content-blank";
+    document.getElementById("content").appendChild(divs);
+  }
+}
+
+$(document).ready(function () {
+  refresh();
+});
+
 // 파일 업로드
 function loadFile(input) {
   var container = document.getElementById("content-img");
@@ -56,25 +72,26 @@ function updateFile(input) {
 }
 
 function changeTag(value) {
-  alert(value);
+  var container = document.getElementById("content");
+  container.innerHTML = contents;
+  if (value == "메모") {
+    let tmp = document.querySelectorAll(".일기");
+    for (var i = 0; i < tmp.length; i++) {
+      tmp[i].remove();
+    }
+  } else if (value == "일기") {
+    let tmp = document.querySelectorAll(".메모");
+    for (var i = 0; i < tmp.length; i++) {
+      tmp[i].remove();
+    }
+  }
 
-  // $.ajax({
-  //   url: "/",
-  //   type: "GET",
-  //   data: {
-  //     input_val: input_val.value,
-  //   },
-  //   datatype: "json", // 서버에서 반환되는 데이터 json 형식
-  //   success: function (data) {
-  //     // AJAX 통신이 성공하면 해당 과일의 영어 단어가 출려되도록
-  //     console.log(data["eng"]); // 콘솔에서 확인
-  //     var element = document.getElementById("div_id");
-  //     document.all("div_id").innerHTML = data["eng"];
-  //   },
-  // });
+  refresh();
 }
 
 // 폼 유효성검사
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
   "use strict";
 

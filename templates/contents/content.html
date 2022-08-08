@@ -19,28 +19,31 @@
       <div class="pt-3">
         <button
           onclick="changeTag(this.value)"
-          value="all"
+          value="전체"
           class="btn-tag fs-5 me-4"
         >
           전체
         </button>
         <button
           onclick="changeTag(this.value)"
-          value="diary"
+          value="일기"
           class="btn-tag fs-5 me-4"
         >
           일기
         </button>
         <button
           onclick="changeTag(this.value)"
-          value="memo"
+          value="메모"
           class="btn-tag fs-5 me-4"
         >
           메모
         </button>
       </div>
       <div class="container">
-        <div class="d-flex flex-wrap justify-content-start pt-5 content">
+        <div
+          class="d-flex flex-wrap justify-content-start pt-5 content"
+          id="content"
+        >
           <div
             class="content-table content-box drop-shadow d-flex justify-content-center align-items-center mb-5"
           >
@@ -54,7 +57,10 @@
           </div>
 
           {% for post in PostList %}
-          <a class="content-table mb-5" href="/post_detail/{{post.pk}}">
+          <a
+            class="content-table mb-5 {{post.tag}}"
+            href="/post_detail/{{post.pk}}"
+          >
             <div
               class="content-box drop-shadow d-flex flex-column overflow-hidden"
             >
@@ -166,8 +172,8 @@
                       <option selected hidden disabled value="">
                         태그를 선택해주세요
                       </option>
-                      <option value="1">일기</option>
-                      <option value="2">메모</option>
+                      <option value="일기">일기</option>
+                      <option value="메모">메모</option>
                     </select>
                   </div>
                 </div>
@@ -212,5 +218,5 @@
       </div>
     </div>
   </div>
-  {% endblock %}
 </div>
+{% endblock %}

@@ -201,3 +201,9 @@ a {
 .content > .content-table > button:hover {
   transform: scale(1.2);
 }
+
+.content-blank {
+  width: 210px;
+  height: 312px;
+  flex-grow: 1;
+}

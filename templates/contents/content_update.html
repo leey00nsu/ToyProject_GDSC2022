@@ -14,6 +14,7 @@ action="{% url 'contents:post_update' %}"
 method="POST"
 enctype="multipart/form-data"
 novalidate
+
 >
 <div class="pt-5 pb-5 notosanskr w-100">
 
@@ -107,9 +108,6 @@ novalidate
                 value="{{post.title}}"
                 required
               >
-              <div class="invalid-feedback">
-                Please choose a username.
-              </div>
             </div>
           </div>
         </div>
@@ -117,7 +115,6 @@ novalidate
           <div class="row justify-content-start align-items-center mt-3">
             <div class="fs-5">
               <textarea
-                
                 wrap="hard"
                 rows="10"
                 style="resize: none"
@@ -125,15 +122,12 @@ novalidate
                 name="content"
                 placeholder="{{post.content}}"
                 value="{{post.content}}" required>{{post.content}}</textarea>
-                <div class="invalid-feedback">
-                  Please choose a username.
-                </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+  
     <input class="d-none" name="post_num" value="{{post.pk}}" />
   </div>
 </form>

@@ -1,12 +1,16 @@
 // 전체 컨텐츠 저장
-var contents = document.getElementById("content").innerHTML;
+if (document.getElementById("content")) {
+  var contents = document.getElementById("content").innerHTML;
+}
 
 function refresh() {
-  var count = document.getElementById("content").childElementCount;
-  for (var i = count; i < 6; i++) {
-    var divs = document.createElement("div");
-    divs.className = "content-blank";
-    document.getElementById("content").appendChild(divs);
+  if (document.getElementById("content")) {
+    var count = document.getElementById("content").childElementCount;
+    for (var i = count; i < 6; i++) {
+      var divs = document.createElement("div");
+      divs.className = "content-blank";
+      document.getElementById("content").appendChild(divs);
+    }
   }
 }
 

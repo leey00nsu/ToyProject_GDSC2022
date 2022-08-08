@@ -1,6 +1,4 @@
 import datetime
-import re
-from this import d
 from django.shortcuts import get_object_or_404,render, redirect
 from django.forms import ModelForm
 from .models import NewPost

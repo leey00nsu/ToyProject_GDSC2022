@@ -106,7 +106,7 @@ a {
 .upload-hover:hover .hover-dark {
   cursor: pointer;
   opacity: 0.3;
-  transition: 0.2s;
+  transition: 0.2s linear;
 }
 
 .upload-hover > div {
@@ -122,6 +122,7 @@ a {
   background-size: cover;
   opacity: 0;
   overflow: hidden;
+  transition: 0.2s linear;
 }
 
 .content-img {

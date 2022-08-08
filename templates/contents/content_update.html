@@ -10,9 +10,11 @@
 {% block content %}
 <div class="pt-5 pb-5 notosanskr w-100">
   <form
+    class="needs-validation"
     action="{% url 'contents:post_update' %}"
     method="POST"
     enctype="multipart/form-data"
+    novalidate
   >
     {% csrf_token %}
     <div class="d-flex flex-column align-items-center">
@@ -45,7 +47,7 @@
             {% if post.tag != None %}
             <div class="fs-5 col-auto">태그 :</div>
             <div class="fs-5 col-auto">
-              <select class="form-select" aria-label="Tag-Select" name="tag">
+              <select class="form-select" aria-label="Tag-Select" name="tag" required>
                 <option hidden="" selected="selected" value="{{post.tag}}">
                   {{post.tag}}
                 </option>
@@ -97,25 +99,27 @@
           <div class="row justify-content-start align-items-center">
             <div class="fs-5">
               <input
-                class="fs-4 text-bold w-100"
+                class="fs-4 text-bold w-100 form-control"
                 name="title"
                 placeholder="{{post.title}}"
                 value="{{post.title}}"
+                required
               />
             </div>
           </div>
         </div>
         <div>
-          <div class="row justify-content-start align-items-center">
+          <div class="row justify-content-start align-items-center mt-3">
             <div class="fs-5">
               <textarea
                 wrap="hard"
                 rows="10"
                 style="resize: none"
-                class="w-100"
+                class="form-control w-100"
                 name="content"
                 placeholder="{{post.content}}"
                 value="{{post.title}}"
+                required
               >
 {{post.title}}</textarea
               >

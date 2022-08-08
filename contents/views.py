@@ -17,10 +17,8 @@ def post_new(request):
         post.last_modified = post.date
         post.title = request.POST['title']
         post.content = request.POST['content']
-        	
+        
 
-        
-        
         if (request.POST['tag'] == '1'):
             post.tag = '일기'
         elif (request.POST['tag'] == '2'):
@@ -30,10 +28,10 @@ def post_new(request):
         try:
             if (request.FILES['imgfile'] != ''):
                 post.imgfile = request.FILES['imgfile']
-            else:
-                post.imgfile = None
+            else:             
+                post.imgfile = request.POST['tmpImg']
         except:
-            post.imgfile = None
+            post.imgfile = post.imgfile
         
         post.save()
        
@@ -57,10 +55,8 @@ def post_update(request):
         try:
             if (request.FILES['imgfile'] != ''):
                 post.imgfile = request.FILES['imgfile']
-            else:
-                post.imgfile = None
         except:
-            post.imgfile = None
+            post.imgfile = post.imgfile
         
         post.save()
        

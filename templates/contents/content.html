@@ -99,9 +99,11 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <form
+          class="needs-validation"
           action="{% url 'contents:post_new' %}"
           method="POST"
           enctype="multipart/form-data"
+          novalidate
         >
           {% csrf_token %}
           <div class="modal-header">
@@ -127,8 +129,13 @@
                 <div
                   class="d-flex flex-column justify-content-center align-items-center"
                 >
-                  <img src="{%static 'images/upload.png' %}" />
-                  <div class="fs-5 text-primary">여기를 눌러 업로드</div>
+                  <div
+                    id="content-img"
+                    class="d-flex flex-column justify-content-center align-items-center"
+                  >
+                    <img src="{%static 'images/upload.png' %}" />
+                    <div class="fs-5 text-primary">여기를 눌러 업로드</div>
+                  </div>
                   <div class="hover-dark"></div>
                 </div>
               </label>
@@ -138,11 +145,11 @@
                 id="imgfile"
                 name="imgfile"
                 onchange="loadFile(this)"
+                required
               />
-              <div
-                class="image-show d-flex flex-row justify-content-center pb-5"
-                id="image-show"
-              ></div>
+              <div id="invalid-img" class="invalid-feedback text-center">
+                사진을 업로드 해주세요.
+              </div>
 
               <!-- 태그,시간 -->
 
@@ -154,8 +161,11 @@
                       class="form-select"
                       aria-label="Tag-Select"
                       name="tag"
+                      required
                     >
-                      <option selected>태그를 선택해주세요</option>
+                      <option selected hidden disabled value="">
+                        태그를 선택해주세요
+                      </option>
                       <option value="1">일기</option>
                       <option value="2">메모</option>
                     </select>
@@ -176,9 +186,10 @@
               <div>
                 <span>
                   <input
-                    class="fs-4 text-bold w-100"
+                    class="fs-4 text-bold w-100 form-control"
                     name="title"
                     placeholder="제목"
+                    required
                   />
                 </span>
               </div>
@@ -188,9 +199,10 @@
                     wrap="hard"
                     rows="10"
                     style="resize: none"
-                    class="w-100"
+                    class="form-control w-100"
                     name="content"
                     placeholder="내용"
+                    required
                   ></textarea>
                 </span>
               </div>

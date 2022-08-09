@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 <!--  -->
 {% block content %}
-<div class="card border-0 pb-5">
+<div class="card border-0">
   <img
     src="{%static 'images/main-background.png' %}"
     class="card-img-top img-fluid"
@@ -12,15 +12,10 @@
     <div
       class="d-flex flex-column justify-content-start align-items-center pt-5"
     >
-      <span class="sub-text notosanskr">일상을 기억하다</span>
-      <span class="main-text jalnan">일상:한컷</span>
-      <a href="/accounts/login">
-        <button
-          type="button"
-          class="small-text btn btn-primary btn-lg notosanskr"
-        >
-          시작하기
-        </button>
+      <div class="sub-text notosanskr">일상을 기억하다</div>
+      <div class="main-text jalnan">일상:한컷</div>
+      <a href="/accounts/login" role="button" class="btn btn-primary btn-lg">
+        시작하기
       </a>
     </div>
   </div>

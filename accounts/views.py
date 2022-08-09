@@ -26,6 +26,7 @@ def login_check(request):
             login(request, user)
             return redirect('/')
     else:
+        
         form = AuthenticationForm()
         
     return render(request, 'accounts/login.html', {"form":form})

@@ -76,14 +76,23 @@ function updateFile(input) {
 }
 
 function changeTag(value) {
+  var btns = document.getElementsByClassName("btn-tag");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove("clicked");
+  }
+
   var container = document.getElementById("content");
   container.innerHTML = contents;
-  if (value == "메모") {
+  if (value == "전체") {
+    btns[0].classList.add("clicked");
+  } else if (value == "메모") {
+    btns[2].classList.add("clicked");
     let tmp = document.querySelectorAll(".일기");
     for (var i = 0; i < tmp.length; i++) {
       tmp[i].remove();
     }
   } else if (value == "일기") {
+    btns[1].classList.add("clicked");
     let tmp = document.querySelectorAll(".메모");
     for (var i = 0; i < tmp.length; i++) {
       tmp[i].remove();

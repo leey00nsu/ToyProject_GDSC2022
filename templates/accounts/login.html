@@ -7,34 +7,33 @@
 {% endblock%}
 <!--  -->
 {% block content %}
-<div class="pt-5 pb-5">
-  <div class="d-flex justify-content-center">
-    <div class="w-25 flex-column">
-      <div class="form">
-        <form method="POST" action="{% url 'accounts:login' %}">
-          {% csrf_token %} {% bootstrap_form form %}
 
-          <button
-            type="submit"
-            value="login"
-            class="btn btn-primary w-100 mb-3"
-          >
-            로그인
-          </button>
-          <div class="d-flex justify-content-center">
-            <span type="text" class="mx-1">처음이신가요?</span>
-            <a type="text" href="/accounts/signup" class="mx-1 text-primary"
-              >여기를 눌러 계정 만들기</a
-            >
-          </div>
-        </form>
+<div class="d-flex justify-content-center align-items-center min-vh-75">
+  <div class="form-login form flex-grow-1">
+    <form
+      class="needs-validation"
+      method="POST"
+      action="{% url 'accounts:login' %}"
+      novalidate
+    >
+      {% csrf_token %} {% bootstrap_form form %}
+
+      <button type="submit" value="login" class="btn btn-primary w-100 mb-3">
+        로그인
+      </button>
+      <div class="d-flex justify-content-center">
+        <span type="text" class="mx-3">처음이신가요?</span>
+        <a type="text" href="/accounts/signup" class="mx-3 text-primary"
+          >여기를 눌러 계정 만들기</a
+        >
       </div>
-    </div>
+    </form>
+
+    <style>
+      .helptext {
+        visibility: hidden;
+      }
+    </style>
   </div>
 </div>
-<style>
-  .helptext {
-    visibility: hidden;
-  }
-</style>
 {% endblock %}

@@ -39,6 +39,7 @@
           <div class="fs-5 col-auto">{{post.last_modified}}</div>
         </div>
       </div>
+      {% if post.user == user.username %}
       <div>
         <div class="mt-1 row">
           <div class="col-auto">
@@ -57,6 +58,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
 
       <!-- 수평가로선 -->
       <hr class="mt-4 mb-4" />

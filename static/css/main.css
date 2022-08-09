@@ -19,6 +19,7 @@ footer {
 /* 링크 밑줄 제거 */
 a {
   text-decoration-line: none;
+  color: black;
 }
 
 .notosanskr {
@@ -30,11 +31,11 @@ a {
 }
 
 .main-text {
-  font-size: 70px;
+  font-size: 80px;
 }
 
 .sub-text {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .text-bold {
@@ -69,6 +70,19 @@ a {
   background-color: #e3f2fd;
   padding: 10px 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.btn-tag:not(div):hover {
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #c6d2e4;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.clicked {
+  background-color: #c6d2e4;
 }
 
 /* POST 추가 버튼 */
@@ -127,11 +141,21 @@ a {
 
 .content-img {
   width: 800px;
-  height: auto;
+}
+
+.form-login {
+  max-width: 600px;
+}
+
+.min-vh-75 {
+  min-height: 75vh;
 }
 
 /* 반응형 미디어쿼리 */
 @media (max-width: 575px) {
+  .search-box {
+    display: none !important;
+  }
   .content > .content-table {
     margin-right: 30px;
   }
@@ -141,6 +165,9 @@ a {
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+  .search-box {
+    display: none !important;
+  }
   .content > .content-table {
     margin-right: 80px;
   }

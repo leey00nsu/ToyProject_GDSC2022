@@ -13,14 +13,16 @@
   <div class="d-flex justify-content-center">
     <div class="d-flex flex-column">
       <div class="fs-2 text-bold">📝 내 기록</div>
+
       <div class="fs-2 text-regular text-wrap">
-        {{ user.username }}님의 일상을 사진으로 기록해보세요.
+        {{ nickname }}님의 일상을 사진으로 기록해보세요.
       </div>
+
       <div class="pt-3">
         <button
           onclick="changeTag(this.value)"
           value="전체"
-          class="btn-tag fs-5 me-4"
+          class="btn-tag fs-5 me-4 clicked"
         >
           전체
         </button>

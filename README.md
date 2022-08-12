@@ -1,3 +1,5 @@
+<img width="195" alt="스크린샷 2022-08-12 오후 5 11 19" src="https://user-images.githubusercontent.com/101182523/184313010-bee4d76e-ec66-4013-9c5c-409e72db1f1e.png">
+
 ## ✔︎ 프로젝트 일상:한컷
 
 일상:한컷은 **GDSC 토이프로젝트**를 통해 팀원이 구성되고 제작되었으며<br>

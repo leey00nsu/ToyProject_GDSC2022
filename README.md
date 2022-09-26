@@ -15,10 +15,9 @@
 | 팀리더 | 백엔드 | 백엔드 | 프론트엔드  |
 
 ## ❓ 프로젝트 의의
-- 모두에게 첫 프로젝트가 되었음
-- Github를 통한 협업방식을 배웠음
-- CRUD의 의미를 알게되었음
-- Django와 Python을 사용해보았음
+- Github를 통한 협업방식 학습
+- CRUD의 의미 학습
+- Django와 Python의 사용
 
 ## 🎨 프로젝트 디자인 (Figma)
 <img width="998" alt="스크린샷 2022-08-12 오후 4 58 54" src="https://user-images.githubusercontent.com/101182523/184311471-ce89d55b-dc77-483d-a29f-e7b0ab60dbdf.png">
